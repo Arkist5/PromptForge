@@ -1,0 +1,27 @@
+.action-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  justify-content: center;
+  margin-bottom: var(--space-8);
+}
+
+.action-bar__button {
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--text-secondary);
+  background-color: transparent;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  transition: all 0.15s ease;
+}
+
+.action-bar__button:hover:not(:disabled) {
+  color: var(--text-primary);
+  border-color: var(--accent-muted);
+}
+
+.action-bar__button:disabled {
+  opacity: 0.5;
+}

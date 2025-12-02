@@ -37,9 +37,9 @@ npm run preview
 src/
 ├── main.tsx              # React entry point
 ├── App.tsx               # Main app, state management, orchestration
+├── App.css               # App layout styles
 ├── index.css             # Global styles, CSS variables, reset
 ├── components/           # UI components (Header, ModeSelector, WordTile, etc.)
-├── hooks/                # Custom hooks (useWordDrawer)
 ├── utils/                # Utility functions (promptBuilder)
 ├── data/                 # Static data (wordList)
 └── types/                # TypeScript interfaces
@@ -48,7 +48,7 @@ src/
 ### Core Data Types
 - `CreationMode`: 'app' | 'game' | 'image' | 'video' | 'story' | 'random'
 - `Material`: { id: string, word: string, isSpinning: boolean }
-- `ForgeState`: Application state containing mode, materials, generated prompt, feedback
+- `FeedbackMessage`: { type: 'success' | 'error', text: string }
 
 ### Key Behaviors
 - Default: 3 materials on load, maximum 5
@@ -77,6 +77,8 @@ Each mode has a specific prompt template in `src/utils/promptBuilder.ts`:
 
 The word list must always include: `shark`, `fist`
 
-## Vite Configuration
+## Deployment
 
-For GitHub Pages deployment, set `base: '/prompt-forge/'` in `vite.config.ts`
+GitHub Pages deployment is automated via GitHub Actions (`.github/workflows/deploy.yml`). Pushing to `main` triggers a build and deploy.
+
+The Vite `base` is set to `/PromptForge/` in `vite.config.ts` to match the repository name.
